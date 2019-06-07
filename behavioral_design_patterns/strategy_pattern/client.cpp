@@ -7,7 +7,6 @@ using namespace std;
 class RubberDuck : public Duck {
  public:
   RubberDuck() {
-    // IFlyStrategy *nf = new NoFly;
     IQuackStrategy *qs = new NoQuack;
     IFlyStrategy *fs = new NoFly;
     InitializeDuck(qs, fs);
@@ -24,7 +23,6 @@ class RubberDuck : public Duck {
 class SimpleDuck : public Duck {
  public:
   SimpleDuck() {
-    // IFlyStrategy *nf = new NoFly;
     IQuackStrategy *qs = new SimpleQuack;
     IFlyStrategy *fs = new SimpleFly;
     InitializeDuck(qs, fs);
@@ -41,7 +39,6 @@ class SimpleDuck : public Duck {
 class SmartDuck : public Duck {
  public:
   SmartDuck() {
-    // IFlyStrategy *nf = new NoFly;
     IQuackStrategy *qs = new QuackLoud;
     IFlyStrategy *fs = new FlyHigh;
     InitializeDuck(qs, fs);
@@ -65,11 +62,12 @@ int main() {
   rd.Execute();
 
   // simple duck simulation
-  SmartDuck smd;
+  SimpleDuck sd;
   cout << "\nLets quack simple duck..." << endl;
-  smd.Quack();
+  sd.Quack();
 
   // smart duck simulation
+  SmartDuck smd;
   cout << "\nLets fly smart duck..." << endl;
   smd.Fly();
   return 0;
